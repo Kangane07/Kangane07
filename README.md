@@ -15,7 +15,7 @@ Always learning and growing to turn ideas into reality.
 ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
 ![HTML5](https://img.shields.io/badge/HTML5-1E1E1E?style=for-the-badge&logo=html5&logoColor=E34F26)
 ![CSS3](https://img.shields.io/badge/CSS3-1E1E1E?style=for-the-badge&logo=css3&logoColor=1572B6)
-![SQLite](https://img.shields.io/badge/SQLite-1E1E1E?style=for-the-badge&logo=sqlite&logoColor=003B57)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-1E1E1E?style=for-the-badge&logo=postgresql&logoColor=336791)
 
 ---
 
