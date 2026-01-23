@@ -4,6 +4,8 @@
 ![GitHub stars](https://img.shields.io/github/stars/Kangane07?style=social)
 
 🚀 Developer | Tech Enthusiast  
+![FarmKart](https://img.shields.io/badge/Project-FarmKart-green)
+![Jinx](https://img.shields.io/badge/Project-Jinx-purple)
 Creator of **Jinx 🎮** and **FarmKart 🌾**  
 Always learning and growing to turn ideas into reality.
 
