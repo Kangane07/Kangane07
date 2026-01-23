@@ -1,16 +1,30 @@
-## Hi there 👋
+# 👋 Hi, I'm Omkar!
 
-<!--
-**Kangane07/Kangane07** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+![GitHub followers](https://img.shields.io/github/followers/Kangane07?style=social)
+![GitHub stars](https://img.shields.io/github/stars/Kangane07?style=social)
 
-Here are some ideas to get you started:
+🚀 Developer | Tech Enthusiast  
+Creator of **Jinx 🎮**, an offline multiplayer game, and **FarmKart 🌾**, a platform connecting farmers directly with consumers.  
+Always learning and growing to turn ideas into reality.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+---
+
+## 🛠️ Tech Stack
+
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![Flask](https://img.shields.io/badge/Flask-Web%20Framework-black)
+![HTML](https://img.shields.io/badge/HTML-5-orange)
+![CSS](https://img.shields.io/badge/CSS-3-blue)
+![SQLite](https://img.shields.io/badge/Database-SQLite-lightgrey)
+
+---
+
+## 🚀 Projects
+- 🌾 **FarmKart** – Full-stack web app connecting farmers and consumers
+- 🎮 **Jinx** – Offline multiplayer party game
+
+---
+
+## 📊 GitHub Stats
+![Omkar's GitHub stats](https://github-readme-stats.vercel.app/api?username=Kangane07&show_icons=true)
+
