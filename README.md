@@ -26,5 +26,5 @@ Always learning and growing to turn ideas into reality.
 ---
 
 ## 📊 GitHub Stats
-![Omkar's GitHub stats](https://github-readme-stats.vercel.app/api?username=Kangane07&show_icons=true&theme=tokyonight)
+![Omkar's GitHub stats](https://github-readme-stats.vercel.app/api?username=Kangane07&show_icons=true&theme=dracula)
 
