@@ -12,7 +12,7 @@ Always learning and growing to turn ideas into reality.
 ## 🛠️ Tech Stack
 
 ![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=E34F26)
 ![HTML5](https://img.shields.io/badge/HTML5-1E1E1E?style=for-the-badge&logo=html5&logoColor=E34F26)
 ![CSS3](https://img.shields.io/badge/CSS3-1E1E1E?style=for-the-badge&logo=css3&logoColor=1572B6)
 ![SQLite](https://img.shields.io/badge/SQLite-1E1E1E?style=for-the-badge&logo=sqlite&logoColor=003B57)
