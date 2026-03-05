@@ -21,7 +21,7 @@ Always learning and growing to turn ideas into reality.
 
 ## 🚀 Projects
 - 🌾 **FarmKart** – Full-stack web application connecting farmers and consumers  
-- 🎮 **Jinx** – Offline multiplayer party game  
+- 🎮 **Jinx** – Online multiplayer party game  
 
 ---
 
