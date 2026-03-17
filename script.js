@@ -1,74 +1,75 @@
 const toggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 const year = document.querySelector('#year');
-const cursorGlow = document.querySelector('.cursor-glow');
 const revealEls = document.querySelectorAll('.reveal, .slide-in');
-const tiltCards = document.querySelectorAll('.tilt-card');
-const motivationLine = document.querySelector('.motivation-line');
+const dot = document.querySelector('.cursor-dot');
+const ring = document.querySelector('.cursor-ring');
+const magneticEls = document.querySelectorAll('.magnetic');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const finePointer = window.matchMedia('(pointer: fine)').matches;
 
-if (year) {
-  year.textContent = String(new Date().getFullYear());
-}
+if (year) year.textContent = String(new Date().getFullYear());
 
-toggle?.addEventListener('click', () => {
-  navLinks?.classList.toggle('open');
-});
+toggle?.addEventListener('click', () => navLinks?.classList.toggle('open'));
+navLinks?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
-navLinks?.querySelectorAll('a').forEach((link) => {
-  link.addEventListener('click', () => navLinks.classList.remove('open'));
-});
-
-const revealOnScroll = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-        revealOnScroll.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.18 },
-);
-
-revealEls.forEach((el) => revealOnScroll.observe(el));
-
-if (motivationLine) {
-  const motivationObserver = new IntersectionObserver(
+if ('IntersectionObserver' in window && !reducedMotion) {
+  document.body.classList.add('has-animations');
+  const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          motivationLine.classList.add('in-view');
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.5 },
+    { threshold: 0.15 },
   );
-
-  motivationObserver.observe(motivationLine);
+  revealEls.forEach((el) => observer.observe(el));
+} else {
+  revealEls.forEach((el) => el.classList.add('show'));
 }
 
-window.addEventListener('pointermove', (event) => {
-  const { clientX, clientY } = event;
+if (finePointer && !reducedMotion && dot && ring) {
+  let x = 0;
+  let y = 0;
+  let rx = 0;
+  let ry = 0;
 
-  document.body.style.setProperty('--mx', `${clientX}px`);
-  document.body.style.setProperty('--my', `${clientY}px`);
+  const loop = () => {
+    rx += (x - rx) * 0.16;
+    ry += (y - ry) * 0.16;
+    dot.style.transform = `translate(${x - 4}px, ${y - 4}px)`;
+    ring.style.transform = `translate(${rx - 17}px, ${ry - 17}px)`;
+    requestAnimationFrame(loop);
+  };
 
-  if (cursorGlow) {
-    cursorGlow.style.transform = `translate(${clientX - 120}px, ${clientY - 120}px)`;
-  }
+  window.addEventListener('pointermove', (e) => {
+    x = e.clientX;
+    y = e.clientY;
+    document.body.classList.add('cursor-visible');
+  }, { passive: true });
 
-  tiltCards.forEach((card) => {
-    const rect = card.getBoundingClientRect();
-    const inside =
-      clientX >= rect.left && clientX <= rect.right && clientY >= rect.top && clientY <= rect.bottom;
+  window.addEventListener('pointerdown', () => document.body.classList.add('cursor-hover'));
+  window.addEventListener('pointerup', () => document.body.classList.remove('cursor-hover'));
 
-    if (!inside) {
-      card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg)';
-      return;
-    }
-
-    const rotateY = ((clientX - rect.left) / rect.width - 0.5) * 10;
-    const rotateX = -((clientY - rect.top) / rect.height - 0.5) * 8;
-    card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  document.querySelectorAll('a, button, .work-card').forEach((el) => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
   });
-});
+
+  magneticEls.forEach((el) => {
+    el.addEventListener('mousemove', (e) => {
+      const r = el.getBoundingClientRect();
+      const mx = (e.clientX - (r.left + r.width / 2)) * 0.08;
+      const my = (e.clientY - (r.top + r.height / 2)) * 0.08;
+      el.style.transform = `translate(${mx}px, ${my}px)`;
+    });
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = 'translate(0, 0)';
+    });
+  });
+
+  loop();
+}
