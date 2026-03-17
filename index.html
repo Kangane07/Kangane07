@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Omkar Kangane | Portfolio</title>
+    <meta
+      name="description"
+      content="Omkar Kangane — Web Developer building interactive and real-world digital products."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="container nav">
+        <a class="brand" href="#home">Omkar Kangane</a>
+        <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="container hero-grid">
+          <div>
+            <p class="kicker">Web Developer · India</p>
+            <h1>Building Interactive and Real-World Products</h1>
+            <p class="hero-copy">
+              I am <strong>Omkar Kangane</strong>, a web developer focused on creating engaging digital
+              experiences that combine creativity with practical functionality.
+            </p>
+            <div class="hero-actions">
+              <a class="btn primary" href="#projects">View Projects</a>
+              <a class="btn ghost" href="#contact">Contact Me</a>
+            </div>
+          </div>
+          <aside class="hero-card">
+            <h2>What makes me different</h2>
+            <p>
+              I build complete, deployable products — from suspense-driven multiplayer games to practical
+              real-world platforms.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container">
+          <h2>About Me</h2>
+          <p>
+            I am a developer who builds interactive and real-world digital products. My work focuses on
+            creating engaging experiences, whether it is a suspense-driven multiplayer game like Jinx or a
+            practical platform like FarmKart that connects farmers directly with consumers. I continuously
+            improve my frontend and backend skills to build scalable and impactful products.
+          </p>
+          <p>
+            My vision is to build impactful digital products that are widely used and recognized, combining
+            innovation, usability, and strong user experience.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="container">
+          <h2>Projects</h2>
+          <div class="cards">
+            <article class="card">
+              <div class="card-head">
+                <h3>Jinx</h3>
+                <span class="tag done">Completed</span>
+              </div>
+              <p>
+                A suspense-based multiplayer game playable both online and offline, powered by hidden
+                questions and coin-flip decisions.
+              </p>
+              <ul>
+                <li>Online real-time multiplayer with Socket.IO</li>
+                <li>Offline single-device multiplayer mode</li>
+                <li>Random player selection and coin-flip mechanic</li>
+              </ul>
+              <a class="inline-link" href="https://kangane07.github.io/Jinx-website/login.html" target="_blank" rel="noreferrer">Live Project ↗</a>
+            </article>
+
+            <article class="card">
+              <div class="card-head">
+                <h3>FarmKart</h3>
+                <span class="tag progress">In Development</span>
+              </div>
+              <p>
+                A farmer-to-consumer platform for direct access to fresh fruits and vegetables without
+                intermediaries.
+              </p>
+              <ul>
+                <li>User registration and authentication</li>
+                <li>Product browsing and order management</li>
+                <li>Feedback and review system</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="skills">
+        <div class="container">
+          <h2>Skills</h2>
+          <div class="chips">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span><span>Flask</span>
+            <span>SQLAlchemy</span><span>Socket.IO</span><span>GitHub</span><span>VS Code</span>
+            <span>GitHub Pages</span><span>Render</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container contact-box">
+          <h2>Contact</h2>
+          <p>Email: <a href="mailto:omkangane07@gmail.com">omkangane07@gmail.com</a></p>
+          <p>Instagram: <a href="https://www.instagram.com/om_kangane07" target="_blank" rel="noreferrer">@om_kangane07</a></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">© <span id="year"></span> Omkar Kangane</div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
