@@ -1,240 +1,74 @@
-:root {
-  --bg: #090d1b;
-  --card: #111936;
-  --text: #edf1ff;
-  --muted: #b6bfd9;
-  --accent: #8e97ff;
-  --accent-2: #b38bff;
+const toggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+const year = document.querySelector('#year');
+const cursorGlow = document.querySelector('.cursor-glow');
+const revealEls = document.querySelectorAll('.reveal, .slide-in');
+const tiltCards = document.querySelectorAll('.tilt-card');
+const motivationLine = document.querySelector('.motivation-line');
+
+if (year) {
+  year.textContent = String(new Date().getFullYear());
 }
 
-* {
-  box-sizing: border-box;
+toggle?.addEventListener('click', () => {
+  navLinks?.classList.toggle('open');
+});
+
+navLinks?.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => navLinks.classList.remove('open'));
+});
+
+const revealOnScroll = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        revealOnScroll.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.18 },
+);
+
+revealEls.forEach((el) => revealOnScroll.observe(el));
+
+if (motivationLine) {
+  const motivationObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          motivationLine.classList.add('in-view');
+        }
+      });
+    },
+    { threshold: 0.5 },
+  );
+
+  motivationObserver.observe(motivationLine);
 }
 
-body {
-  margin: 0;
-  font-family: Inter, system-ui, -apple-system, sans-serif;
-  color: var(--text);
-  background: radial-gradient(circle at 10% 10%, #1a2752 0%, var(--bg) 48%);
-  line-height: 1.6;
-}
+window.addEventListener('pointermove', (event) => {
+  const { clientX, clientY } = event;
 
-.container {
-  width: min(1100px, 92%);
-  margin: 0 auto;
-}
+  document.body.style.setProperty('--mx', `${clientX}px`);
+  document.body.style.setProperty('--my', `${clientY}px`);
 
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: rgba(9, 13, 27, 0.75);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-}
-
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 70px;
-}
-
-.brand {
-  text-decoration: none;
-  color: var(--text);
-  font-weight: 800;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: var(--muted);
-}
-
-.nav-links a:hover {
-  color: var(--text);
-}
-
-.menu-toggle {
-  display: none;
-  background: transparent;
-  color: var(--text);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 10px;
-  padding: 0.25rem 0.6rem;
-}
-
-.hero {
-  padding: 5rem 0 3rem;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 1.2rem;
-  align-items: center;
-}
-
-.kicker {
-  margin: 0 0 0.5rem;
-  color: var(--accent-2);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-h1 {
-  margin: 0;
-  font-size: clamp(2rem, 4vw, 3.1rem);
-  line-height: 1.15;
-}
-
-.hero-copy {
-  color: var(--muted);
-}
-
-.hero-actions {
-  display: flex;
-  gap: 0.7rem;
-  margin-top: 1.3rem;
-}
-
-.btn {
-  text-decoration: none;
-  border-radius: 999px;
-  padding: 0.65rem 1.2rem;
-  font-weight: 600;
-}
-
-.btn.primary {
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color: #fff;
-}
-
-.btn.ghost {
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  color: var(--text);
-}
-
-.hero-card,
-.card,
-.contact-box {
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.03));
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 18px;
-  padding: 1.2rem;
-}
-
-.section {
-  padding: 3.2rem 0;
-}
-
-h2 {
-  margin-top: 0;
-  font-size: 1.9rem;
-}
-
-.section p,
-.card p {
-  color: var(--muted);
-}
-
-.cards {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.card-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.7rem;
-}
-
-.tag {
-  font-size: 0.82rem;
-  border-radius: 999px;
-  padding: 0.22rem 0.65rem;
-  font-weight: 700;
-}
-
-.tag.done {
-  background: rgba(52, 211, 153, 0.2);
-  color: #7cf3c8;
-}
-
-.tag.progress {
-  background: rgba(250, 204, 21, 0.2);
-  color: #ffe384;
-}
-
-.card ul {
-  padding-left: 1.1rem;
-  margin-bottom: 0.5rem;
-  color: var(--muted);
-}
-
-.inline-link {
-  color: #d5ddff;
-  font-weight: 600;
-}
-
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
-
-.chips span {
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 999px;
-  padding: 0.35rem 0.75rem;
-  color: #d2dbfb;
-}
-
-.contact-box a {
-  color: #d8e0ff;
-}
-
-.footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--muted);
-  text-align: center;
-  padding: 1.2rem 0;
-}
-
-@media (max-width: 860px) {
-  .hero-grid,
-  .cards {
-    grid-template-columns: 1fr;
+  if (cursorGlow) {
+    cursorGlow.style.transform = `translate(${clientX - 120}px, ${clientY - 120}px)`;
   }
 
-  .menu-toggle {
-    display: block;
-  }
+  tiltCards.forEach((card) => {
+    const rect = card.getBoundingClientRect();
+    const inside =
+      clientX >= rect.left && clientX <= rect.right && clientY >= rect.top && clientY <= rect.bottom;
 
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 65px;
-    right: 4%;
-    flex-direction: column;
-    background: rgba(8, 12, 25, 0.98);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 12px;
-    padding: 0.8rem;
-  }
+    if (!inside) {
+      card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg)';
+      return;
+    }
 
-  .nav-links.open {
-    display: flex;
-  }
-}
+    const rotateY = ((clientX - rect.left) / rect.width - 0.5) * 10;
+    const rotateX = -((clientY - rect.top) / rect.height - 0.5) * 8;
+    card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  });
+});
