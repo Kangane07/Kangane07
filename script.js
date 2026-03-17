@@ -4,7 +4,6 @@ const year = document.querySelector('#year');
 const revealEls = document.querySelectorAll('.reveal, .slide-in');
 const dot = document.querySelector('.cursor-dot');
 const ring = document.querySelector('.cursor-ring');
-const trailContainer = document.querySelector('.cursor-trail');
 const magneticEls = document.querySelectorAll('.magnetic');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const finePointer = window.matchMedia('(pointer: fine)').matches;
@@ -32,18 +31,7 @@ if ('IntersectionObserver' in window && !reducedMotion) {
   revealEls.forEach((el) => el.classList.add('show'));
 }
 
-if (finePointer && !reducedMotion && dot && ring && trailContainer) {
-  const trailCount = 12;
-  const trail = [];
-
-  for (let i = 0; i < trailCount; i += 1) {
-    const particle = document.createElement('span');
-    particle.className = 'trail-particle';
-    particle.style.opacity = String(1 - i / trailCount);
-    trailContainer.appendChild(particle);
-    trail.push({ el: particle, x: 0, y: 0 });
-  }
-
+if (finePointer && !reducedMotion && dot && ring) {
   let x = 0;
   let y = 0;
   let rx = 0;
@@ -52,21 +40,8 @@ if (finePointer && !reducedMotion && dot && ring && trailContainer) {
   const loop = () => {
     rx += (x - rx) * 0.16;
     ry += (y - ry) * 0.16;
-
     dot.style.transform = `translate(${x - 4}px, ${y - 4}px)`;
     ring.style.transform = `translate(${rx - 17}px, ${ry - 17}px)`;
-
-    let tx = x;
-    let ty = y;
-    trail.forEach((p, i) => {
-      p.x += (tx - p.x) * (0.28 - i * 0.012);
-      p.y += (ty - p.y) * (0.28 - i * 0.012);
-      const scale = 1 - i * 0.045;
-      p.el.style.transform = `translate(${p.x - 5}px, ${p.y - 5}px) scale(${scale})`;
-      tx = p.x;
-      ty = p.y;
-    });
-
     requestAnimationFrame(loop);
   };
 

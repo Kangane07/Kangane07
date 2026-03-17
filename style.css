@@ -1,5 +1,6 @@
 :root {
   --bg: #000000;
+  --bg-2: #080808;
   --line: #1a1a1a;
   --text: #f2f2f2;
   --muted: #979797;
@@ -23,20 +24,19 @@ body {
   overflow-x: hidden;
 }
 
-a,
-button {
+a, button {
   cursor: none;
 }
 
 .cursor-dot,
-.cursor-ring,
-.trail-particle {
+.cursor-ring {
   position: fixed;
   top: 0;
   left: 0;
   pointer-events: none;
   z-index: 1000;
   opacity: 0;
+  transition: opacity 0.2s ease;
 }
 
 .cursor-dot {
@@ -44,6 +44,7 @@ button {
   height: 8px;
   border-radius: 50%;
   background: #fff;
+  transform: translate(-50%, -50%);
 }
 
 .cursor-ring {
@@ -51,20 +52,12 @@ button {
   height: 34px;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.6);
+  transform: translate(-50%, -50%);
   transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
 }
 
-.trail-particle {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
-  filter: blur(0.4px);
-}
-
 body.cursor-visible .cursor-dot,
-body.cursor-visible .cursor-ring,
-body.cursor-visible .trail-particle {
+body.cursor-visible .cursor-ring {
   opacity: 1;
 }
 
@@ -140,7 +133,19 @@ body.cursor-hover .cursor-ring {
 }
 
 .hero-wrap {
-  display: block;
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.kento-letters {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.86;
+  font-weight: 900;
+  font-size: clamp(2.4rem, 7vw, 5rem);
+  color: #d5d5d5;
 }
 
 .eyebrow {
@@ -159,7 +164,7 @@ body.cursor-hover .cursor-ring {
 
 .hero-info p {
   color: #b7b7b7;
-  max-width: 75ch;
+  max-width: 65ch;
 }
 
 .hero-actions {
@@ -287,13 +292,18 @@ body.cursor-hover .cursor-ring {
   }
 
   .cursor-dot,
-  .cursor-ring,
-  .trail-particle {
+  .cursor-ring {
     display: none;
   }
 
+  .hero-wrap,
   .works {
     grid-template-columns: 1fr;
+  }
+
+  .kento-letters {
+    flex-direction: row;
+    gap: 0.28rem;
   }
 
   .menu-toggle {
