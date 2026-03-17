@@ -291,30 +291,24 @@ h2 {
   padding: 1.2rem 0;
 }
 
-.reveal,
-.slide-in {
-  opacity: 1;
-  transform: none;
-}
-
-.has-animations .reveal {
+.reveal {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.has-animations .reveal.show {
+.reveal.show {
   opacity: 1;
   transform: translateY(0);
 }
 
-.has-animations .slide-in {
+.slide-in {
   opacity: 0;
   transform: translateX(26px);
   transition: opacity 0.9s ease, transform 0.9s ease;
 }
 
-.has-animations .slide-in.show {
+.slide-in.show {
   opacity: 1;
   transform: translateX(0);
 }
@@ -362,21 +356,6 @@ h2 {
 
   .nav-links.open {
     display: flex;
-  }
-
-  .cursor-glow {
-    display: none;
-  }
-}
-
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation: none !important;
-    transition: none !important;
-    scroll-behavior: auto !important;
   }
 
   .cursor-glow {
