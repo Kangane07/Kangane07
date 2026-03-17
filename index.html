@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Omkar Kangane | Portfolio</title>
+    <meta
+      name="description"
+      content="Omkar Kangane — Web Developer building interactive and real-world digital products."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <nav class="container nav">
+        <a class="brand" href="#home">OK</a>
+        <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#works">Works</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="container hero-grid reveal">
+          <div class="hero-name" aria-hidden="true">
+            <span>O</span><span>M</span><span>K</span><span>A</span><span>R</span>
+          </div>
+          <div class="hero-content">
+            <p class="hero-role">Web Developer / Designer</p>
+            <h1>Omkar Kangane</h1>
+            <p>
+              Building interactive and real-world digital products with creativity, performance, and strong
+              user experience.
+            </p>
+            <div class="hero-actions">
+              <a class="btn" href="#works">View Works</a>
+              <a class="btn ghost" href="https://jinx-website.onrender.com/" target="_blank" rel="noreferrer">Jinx Live ↗</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="works">
+        <div class="container">
+          <p class="section-label">WORKS</p>
+          <div class="works-grid">
+            <article class="work-card slide-in">
+              <h2>Jinx</h2>
+              <p>
+                Suspense-based multiplayer game (online/offline) with hidden-question flow and coin-flip
+                mechanic.
+              </p>
+              <a href="https://jinx-website.onrender.com/" target="_blank" rel="noreferrer">Open Project ↗</a>
+            </article>
+            <article class="work-card slide-in">
+              <h2>FarmKart</h2>
+              <p>
+                Farmer-to-consumer web platform for direct produce access with practical real-world impact.
+              </p>
+              <span>In Development</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="about">
+        <div class="container narrow">
+          <p class="section-label">ABOUT</p>
+          <h2>
+            I build products people can actually use — from real-time multiplayer experiences to practical
+            marketplace systems.
+          </h2>
+          <p>
+            My focus is full-stack web development with increasing attention to front-end details, smooth
+            motion, and clean interaction design.
+          </p>
+        </div>
+      </section>
+
+      <section class="section motivation reveal">
+        <div class="container narrow">
+          <p class="section-label">MOTIVATION</p>
+          <p class="motivation-line">
+            To create impactful digital products that are recognized, remembered, and used by real people.
+          </p>
+        </div>
+      </section>
+
+      <section class="section reveal" id="contact">
+        <div class="container">
+          <p class="section-label">CONTACT</p>
+          <div class="contact-row">
+            <a href="https://github.com/Kangane07" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://www.instagram.com/om_kangane07" target="_blank" rel="noreferrer">Instagram</a>
+            <a href="mailto:omkangane07@gmail.com">Email</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">© <span id="year"></span> Omkar Kangane</div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
