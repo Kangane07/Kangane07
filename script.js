@@ -16,30 +16,28 @@ navLinks?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () =>
 
 if ('IntersectionObserver' in window && !reducedMotion) {
   document.body.classList.add('has-animations');
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15 },
-  );
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
   revealEls.forEach((el) => observer.observe(el));
 } else {
   revealEls.forEach((el) => el.classList.add('show'));
 }
 
 if (finePointer && !reducedMotion && dot && ring && trailContainer) {
-  const trailCount = 12;
+  const trailCount = 16;
   const trail = [];
 
   for (let i = 0; i < trailCount; i += 1) {
     const particle = document.createElement('span');
     particle.className = 'trail-particle';
-    particle.style.opacity = String(1 - i / trailCount);
+    particle.style.opacity = String(0.95 - i / (trailCount + 2));
     trailContainer.appendChild(particle);
     trail.push({ el: particle, x: 0, y: 0 });
   }
@@ -53,16 +51,17 @@ if (finePointer && !reducedMotion && dot && ring && trailContainer) {
     rx += (x - rx) * 0.16;
     ry += (y - ry) * 0.16;
 
-    dot.style.transform = `translate(${x - 4}px, ${y - 4}px)`;
-    ring.style.transform = `translate(${rx - 17}px, ${ry - 17}px)`;
+    dot.style.transform = `translate(${x}px, ${y}px)`;
+    ring.style.transform = `translate(${rx}px, ${ry}px)`;
 
     let tx = x;
     let ty = y;
     trail.forEach((p, i) => {
-      p.x += (tx - p.x) * (0.28 - i * 0.012);
-      p.y += (ty - p.y) * (0.28 - i * 0.012);
-      const scale = 1 - i * 0.045;
-      p.el.style.transform = `translate(${p.x - 5}px, ${p.y - 5}px) scale(${scale})`;
+      const ease = Math.max(0.11, 0.34 - i * 0.015);
+      p.x += (tx - p.x) * ease;
+      p.y += (ty - p.y) * ease;
+      const scale = Math.max(0.28, 1 - i * 0.05);
+      p.el.style.transform = `translate(${p.x}px, ${p.y}px) scale(${scale})`;
       tx = p.x;
       ty = p.y;
     });
