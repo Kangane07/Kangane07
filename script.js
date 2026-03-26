@@ -9,7 +9,34 @@ const magneticEls = document.querySelectorAll('.magnetic');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const finePointer = window.matchMedia('(pointer: fine)').matches;
 
+const projectImages = document.querySelectorAll('.work-image[data-image-base]');
+const imageExtensions = ['webp', 'png', 'jpg', 'jpeg'];
+
+const tryLoad = (url) => new Promise((resolve) => {
+  const img = new Image();
+  img.onload = () => resolve(url);
+  img.onerror = () => resolve(null);
+  img.src = url;
+});
+
+const setProjectScreenshots = async () => {
+  for (const imageEl of projectImages) {
+    const base = imageEl.getAttribute('data-image-base');
+    if (!base) continue;
+
+    for (const ext of imageExtensions) {
+      const candidate = `${base}.${ext}`;
+      const loadedUrl = await tryLoad(candidate);
+      if (loadedUrl) {
+        imageEl.src = loadedUrl;
+        break;
+      }
+    }
+  }
+};
+
 if (year) year.textContent = String(new Date().getFullYear());
+setProjectScreenshots();
 
 toggle?.addEventListener('click', () => navLinks?.classList.toggle('open'));
 navLinks?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => navLinks.classList.remove('open')));

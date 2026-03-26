@@ -186,6 +186,17 @@ body.cursor-hover .cursor-ring {
   padding: 1rem;
 }
 
+.work-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: top center;
+  border: 1px solid #2d2d2d;
+  border-radius: 10px;
+  margin-bottom: .85rem;
+  background: #111;
+}
+
 .work-card h2 { margin: 0 0 .4rem; }
 .work-card p, .work-card .status { color: #b0b0b0; }
 .work-card a { color: #fff; }
