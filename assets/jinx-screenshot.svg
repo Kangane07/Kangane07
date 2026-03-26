@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="Jinx screenshot placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#141414"/>
+      <stop offset="1" stop-color="#2a2a2a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect x="120" y="120" width="1040" height="480" rx="16" fill="#0c0c0c" stroke="#3a3a3a"/>
+  <text x="640" y="340" fill="#f4f4f4" font-size="56" text-anchor="middle" font-family="Inter, Arial, sans-serif">Jinx Screenshot</text>
+  <text x="640" y="396" fill="#9d9d9d" font-size="28" text-anchor="middle" font-family="Inter, Arial, sans-serif">Replace this file with your real project image</text>
+</svg>
