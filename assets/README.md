@@ -2,9 +2,9 @@
 
 Add your real screenshots in this folder using these filenames:
 
-- `jinx-screenshot` (first screenshot — Jinx)
-- `farmkart-screenshot` (second screenshot — FarmKart)
+- `jinx-screenshot.png` (first screenshot — Jinx)
+- `farmkart-screenshot.png` (second screenshot — FarmKart)
 
-Supported formats: `.webp`, `.png`, `.jpg`, `.jpeg`.
+Optional: You can also add `.webp` versions with the same base names.
 
-If none of these files exist, the portfolio automatically falls back to the SVG placeholders.
+If PNG/WEBP files are missing, the portfolio will automatically fall back to the SVG placeholders.
