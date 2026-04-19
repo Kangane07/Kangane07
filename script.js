@@ -78,8 +78,8 @@ if (finePointer && !reducedMotion && dot && ring && trailContainer) {
     rx += (x - rx) * 0.16;
     ry += (y - ry) * 0.16;
 
-    dot.style.transform = `translate(${x}px, ${y}px)`;
-    ring.style.transform = `translate(${rx}px, ${ry}px)`;
+    dot.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
+    ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%)`;
 
     let tx = x;
     let ty = y;
@@ -88,7 +88,7 @@ if (finePointer && !reducedMotion && dot && ring && trailContainer) {
       p.x += (tx - p.x) * ease;
       p.y += (ty - p.y) * ease;
       const scale = Math.max(0.28, 1 - i * 0.05);
-      p.el.style.transform = `translate(${p.x}px, ${p.y}px) scale(${scale})`;
+      p.el.style.transform = `translate(${p.x}px, ${p.y}px) translate(-50%, -50%) scale(${scale})`;
       tx = p.x;
       ty = p.y;
     });
